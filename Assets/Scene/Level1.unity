@@ -115,7 +115,7 @@ NavMeshSettings:
   m_NavMeshData: {fileID: 0}
 --- !u!1 &291350655 stripped
 GameObject:
-  m_PrefabParentObject: {fileID: 1654034322236534, guid: 9ca64f625118dc74ea05524d1eac7ca5,
+  m_PrefabParentObject: {fileID: 1776772055179366, guid: 9ca64f625118dc74ea05524d1eac7ca5,
     type: 2}
   m_PrefabInternal: {fileID: 1206365250}
 --- !u!1 &701871580
@@ -284,68 +284,41 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4427571218380234, guid: 9ca64f625118dc74ea05524d1eac7ca5, type: 2}
+    - target: {fileID: 4135277803427800, guid: 9ca64f625118dc74ea05524d1eac7ca5, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4427571218380234, guid: 9ca64f625118dc74ea05524d1eac7ca5, type: 2}
+    - target: {fileID: 4135277803427800, guid: 9ca64f625118dc74ea05524d1eac7ca5, type: 2}
       propertyPath: m_LocalPosition.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 4427571218380234, guid: 9ca64f625118dc74ea05524d1eac7ca5, type: 2}
+    - target: {fileID: 4135277803427800, guid: 9ca64f625118dc74ea05524d1eac7ca5, type: 2}
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4427571218380234, guid: 9ca64f625118dc74ea05524d1eac7ca5, type: 2}
+    - target: {fileID: 4135277803427800, guid: 9ca64f625118dc74ea05524d1eac7ca5, type: 2}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4427571218380234, guid: 9ca64f625118dc74ea05524d1eac7ca5, type: 2}
+    - target: {fileID: 4135277803427800, guid: 9ca64f625118dc74ea05524d1eac7ca5, type: 2}
       propertyPath: m_LocalRotation.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4427571218380234, guid: 9ca64f625118dc74ea05524d1eac7ca5, type: 2}
+    - target: {fileID: 4135277803427800, guid: 9ca64f625118dc74ea05524d1eac7ca5, type: 2}
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4427571218380234, guid: 9ca64f625118dc74ea05524d1eac7ca5, type: 2}
+    - target: {fileID: 4135277803427800, guid: 9ca64f625118dc74ea05524d1eac7ca5, type: 2}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4427571218380234, guid: 9ca64f625118dc74ea05524d1eac7ca5, type: 2}
+    - target: {fileID: 4135277803427800, guid: 9ca64f625118dc74ea05524d1eac7ca5, type: 2}
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4354712014270494, guid: 9ca64f625118dc74ea05524d1eac7ca5, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: -0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 4354712014270494, guid: 9ca64f625118dc74ea05524d1eac7ca5, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4354712014270494, guid: 9ca64f625118dc74ea05524d1eac7ca5, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4354712014270494, guid: 9ca64f625118dc74ea05524d1eac7ca5, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 4354712014270494, guid: 9ca64f625118dc74ea05524d1eac7ca5, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: -90
-      objectReference: {fileID: 0}
-    - target: {fileID: 4354712014270494, guid: 9ca64f625118dc74ea05524d1eac7ca5, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4354712014270494, guid: 9ca64f625118dc74ea05524d1eac7ca5, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4354712014270494, guid: 9ca64f625118dc74ea05524d1eac7ca5, type: 2}
-      propertyPath: m_LocalPosition.z
+    - target: {fileID: 82777467613504262, guid: 9ca64f625118dc74ea05524d1eac7ca5,
+        type: 2}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

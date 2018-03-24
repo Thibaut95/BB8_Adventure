@@ -10,15 +10,24 @@ public class PlayerControler : MonoBehaviour
     private float speedJump;
     [SerializeField]
     private GameObject head;
+    [SerializeField]
+    private GameObject body;
+    [SerializeField]
+    private AudioClip[] audioClips;
+    [SerializeField]
+    private int timeAudio;
 
     private Rigidbody rb;
     private Rigidbody rbHead;
+    private AudioSource audioBip;
     private float angleLook;
+    private int indexAudio = 0;
 
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
+        rb = body.GetComponent<Rigidbody>();
         rbHead = head.GetComponent<Rigidbody>();
+        audioBip = GetComponent<AudioSource>();
     }
 
     void FixedUpdate()
@@ -42,13 +51,24 @@ public class PlayerControler : MonoBehaviour
         {
             angleLook = angleLook*(float)0.9+getAngle(moveHorizontal, moveVertical) * (float)0.1;
         }
+
+        if(Time.time % timeAudio == 0)
+        {
+            audioBip.clip = audioClips[indexAudio];
+            audioBip.Play();
+            indexAudio++;
+            if(indexAudio>=audioClips.Length)
+            {
+                indexAudio = 0;
+            }
+        }
         
-        rb.AddForce(movement);
+        rb.AddForce(movement);      
     }
 
     void Update()
     {
-        head.transform.position = this.transform.position;
+        head.transform.position = body.transform.position;
         head.transform.eulerAngles = new Vector3(-90, 0, angleLook);
     }
 	
