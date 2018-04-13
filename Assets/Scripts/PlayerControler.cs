@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PlayerControler : MonoBehaviour
 {
@@ -13,6 +11,8 @@ public class PlayerControler : MonoBehaviour
     [SerializeField]
     private GameObject body;
     [SerializeField]
+    private float friction;
+    [SerializeField]
     private AudioClip[] audioClips;
     [SerializeField]
     private int timeAudio;
@@ -22,9 +22,11 @@ public class PlayerControler : MonoBehaviour
     private AudioSource audioBip;
     private float angleLook;
     private int indexAudio = 0;
+    private Camera mainCamera; 
 
     void Start()
     {
+        mainCamera = GameObject.Find("Main Camera").GetComponent<Camera>();
         rb = body.GetComponent<Rigidbody>();
         rbHead = head.GetComponent<Rigidbody>();
         audioBip = GetComponent<AudioSource>();
@@ -35,7 +37,7 @@ public class PlayerControler : MonoBehaviour
         float moveHorizontal = Input.GetAxis("Horizontal");
         float moveVertical = Input.GetAxis("Vertical");
         float jump = Input.GetAxis("Jump");
-
+        Debug.Log("Hello", mainCamera);
         if(Mathf.Abs(rb.velocity.y)<0.001)
         {
             jump = jump * speedJump;
@@ -45,7 +47,8 @@ public class PlayerControler : MonoBehaviour
             jump = 0;
         }
         
-        Vector3 movement = new Vector3(moveHorizontal * speed, jump ,moveVertical * speed);
+        Vector3 movement = Quaternion.AngleAxis(mainCamera.transform.eulerAngles.y, Vector3.up) * new Vector3(moveHorizontal * speed, jump, moveVertical * speed);
+
 
         if(moveVertical!=0.0 || moveHorizontal!=0.0)
         {
@@ -63,15 +66,18 @@ public class PlayerControler : MonoBehaviour
             }
         }
         
-        rb.AddForce(movement);      
+        rb.AddForce(movement);
+        rb.AddForce(-friction * rb.velocity);
     }
 
     void Update()
     {
         head.transform.position = body.transform.position;
         head.transform.eulerAngles = new Vector3(-90, 0, angleLook);
+        
+
     }
-	
+
     float getAngle(float horizontal, float vertical)
     {
         float angle;
