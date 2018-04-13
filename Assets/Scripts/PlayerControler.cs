@@ -36,7 +36,7 @@ public class PlayerControler : MonoBehaviour
         float moveVertical = Input.GetAxis("Vertical");
         float jump = Input.GetAxis("Jump");
 
-        if(rb.velocity.y==0)
+        if(Mathf.Abs(rb.velocity.y)<0.001)
         {
             jump = jump * speedJump;
         }
