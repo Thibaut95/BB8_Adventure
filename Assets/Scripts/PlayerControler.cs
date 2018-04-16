@@ -18,18 +18,18 @@ public class PlayerControler : MonoBehaviour
     private int timeAudio;
 
     private Rigidbody rb;
-    private Rigidbody rbHead;
     private AudioSource audioBip;
     private float angleLook;
     private int indexAudio = 0;
-    private Camera mainCamera; 
+    private Camera mainCamera;
+    private bool jumping = false;
+
 
     void Start()
-    {
+    {       
         mainCamera = GameObject.Find("Main Camera").GetComponent<Camera>();
-        rb = body.GetComponent<Rigidbody>();
-        rbHead = head.GetComponent<Rigidbody>();
-        audioBip = GetComponent<AudioSource>();
+        rb = GetComponent<Rigidbody>();       
+        audioBip = GetComponent<AudioSource>();   
     }
 
     void FixedUpdate()
@@ -38,8 +38,9 @@ public class PlayerControler : MonoBehaviour
         float moveVertical = Input.GetAxis("Vertical");
         float jump = Input.GetAxis("Jump");
 
-        if(Mathf.Abs(rb.velocity.y)<0.001)
+        if(!jumping)
         {
+            jumping = true;
             jump = jump * speedJump;
         }
         else
@@ -49,10 +50,9 @@ public class PlayerControler : MonoBehaviour
         
         Vector3 movement = Quaternion.AngleAxis(mainCamera.transform.eulerAngles.y, Vector3.up) * new Vector3(moveHorizontal * speed, jump, moveVertical * speed);
 
-
         if(moveVertical!=0.0 || moveHorizontal!=0.0)
         {
-            angleLook = angleLook*(float)0.9+getAngle(moveHorizontal, moveVertical) * (float)0.1;
+            angleLook = angleLook*(float)0.9+getAngle(movement.x, movement.z) * (float)0.1;
         }
 
         if(Time.time % timeAudio == 0)
@@ -65,17 +65,30 @@ public class PlayerControler : MonoBehaviour
                 indexAudio = 0;
             }
         }
-        
+
         rb.AddForce(movement);
         rb.AddForce(-friction * rb.velocity);
     }
 
     void Update()
-    {
-        head.transform.position = body.transform.position;
-        head.transform.eulerAngles = new Vector3(-90, 0, angleLook);
-        
+    {      
+        head.transform.eulerAngles = new Vector3(-90, 0, angleLook);     
+    }
 
+    void OnTriggerEnter(Collider other)
+    {
+        if(other.tag=="Map_Collectable")
+        {
+            Destroy(other.gameObject);
+        }     
+    }
+
+    void OnCollisionEnter(Collision collisionInfo)
+    {
+        if (collisionInfo.gameObject.tag == "Floor")
+        {
+            jumping = false;
+        }
     }
 
     float getAngle(float horizontal, float vertical)
