@@ -79,8 +79,19 @@ public class PlayerControler : MonoBehaviour
     {
         if(other.tag=="Map_Collectable")
         {
+            //TODO
             Destroy(other.gameObject);
         }     
+        if(other.tag=="Key")
+        {
+            //TODO
+            Destroy(other.gameObject);
+        }
+        if(other.tag=="Laser")
+        {
+            //TODO
+            Debug.Log("Touching laser");
+        }
     }
 
     void OnCollisionEnter(Collision collisionInfo)

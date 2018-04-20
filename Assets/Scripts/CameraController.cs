@@ -16,6 +16,8 @@ public class CameraController : MonoBehaviour
     [SerializeField]
     private int height;
 
+    private float angleY=0;
+
     // Use this for initialization
     void Start ()
     {
@@ -28,7 +30,10 @@ public class CameraController : MonoBehaviour
 	void LateUpdate ()
     {
         offsetX = Quaternion.AngleAxis(Input.GetAxis("Mouse X") * turnSpeed, Vector3.up) * offsetX;
-        transform.position = player.transform.position + offsetX;
-        transform.LookAt(player.transform.position);
+        //offsetY = Quaternion.AngleAxis(Input.GetAxis("Mouse Y") * turnSpeed, Vector3.up) * offsetY; 
+        angleY += Input.GetAxis("Mouse Y");
+        transform.position = player.transform.position + offsetX - new Vector3(0, angleY, 0);
+        transform.LookAt(player.transform.position+new Vector3(0, angleY, 0));
+        
     }
 }

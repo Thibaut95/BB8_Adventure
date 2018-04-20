@@ -16,8 +16,13 @@ public class Rotator : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        this.transform.Rotate(new Vector3(0, speedRotation, 0));
+        this.transform.Rotate(new Vector3(0, speedRotation, 0), Space.World);
+
         
+        
+
+        
+
         //this.transform.RotateAround(this.transform.position - new Vector3(-1, 0, -1),new Vector3(0,1,0),speedRotation);
-	}
+    }
 }
