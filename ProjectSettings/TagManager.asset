@@ -8,6 +8,8 @@ TagManager:
   - Floor
   - Key
   - Laser
+  - FxTemporaire
+  - Cone
   layers:
   - Default
   - TransparentFX
