@@ -38,8 +38,8 @@ public class PlayerControler : MonoBehaviour
         rb = GetComponent<Rigidbody>();       
         audioBip = GetComponent<AudioSource>();  
         gameScript = (GameScript)GameObject.Find("Information").gameObject.GetComponent(typeof(GameScript));
-        menuGameOver = GameObject.Find("MenuGameOverCanvas").gameObject;
-        menuGameOver.SetActive(false);
+        //menuGameOver = GameObject.Find("MenuGameOverCanvas").gameObject;
+        //menuGameOver.SetActive(false);
     }
 
     void FixedUpdate()
@@ -106,7 +106,7 @@ public class PlayerControler : MonoBehaviour
             //TODO
             
             Time.timeScale = 0;
-            menuGameOver.SetActive(true);
+            //menuGameOver.SetActive(true);
             Debug.Log("Dead");
         }
     }

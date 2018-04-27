@@ -29,7 +29,7 @@ public class SpikeScript : MonoBehaviour {
             }
             else
             {
-                direction = -1;
+                Invoke("SpikeDown", delay*2+0.5f);
             }
         }else if (direction == -1)
         {
@@ -46,11 +46,14 @@ public class SpikeScript : MonoBehaviour {
 	}
     void OnCollisionEnter(Collision collision)
     {
-        Invoke("SpikeUp", delay);
-        
+        Invoke("SpikeUp", delay); 
     }
     void SpikeUp()
     {
         direction = 1;
+    }
+    void SpikeDown()
+    {
+        direction = -1;
     }
 }
