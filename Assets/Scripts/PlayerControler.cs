@@ -119,12 +119,6 @@ public class PlayerControler : MonoBehaviour
         }
     }
 
-    public void restartLevel()
-    {
-        Application.LoadLevel(Application.loadedLevel);
-        Time.timeScale = 1;
-    }
-
     float getAngle(float horizontal, float vertical)
     {
         float angle;
