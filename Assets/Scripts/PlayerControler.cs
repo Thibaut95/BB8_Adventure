@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Collections.Generic;
 
 public class PlayerControler : MonoBehaviour
 {
@@ -23,17 +24,27 @@ public class PlayerControler : MonoBehaviour
     private int indexAudio = 0;
     private Camera mainCamera;
     private bool jumping = false;
-
+    private List<string> listKey;
+    private int countMap = 0;
+    private GameScript gameScript;
+    private bool gamePaused = false;
+    private GameObject menuGameOver;
+    
 
     void Start()
-    {       
+    {
+        listKey = new List<string>();
         mainCamera = GameObject.Find("Main Camera").GetComponent<Camera>();
         rb = GetComponent<Rigidbody>();       
-        audioBip = GetComponent<AudioSource>();   
+        audioBip = GetComponent<AudioSource>();  
+        gameScript = (GameScript)GameObject.Find("Information").gameObject.GetComponent(typeof(GameScript));
+        menuGameOver = GameObject.Find("MenuGameOverCanvas").gameObject;
+        menuGameOver.SetActive(false);
     }
 
     void FixedUpdate()
     {
+
         float moveHorizontal = Input.GetAxis("Horizontal");
         float moveVertical = Input.GetAxis("Vertical");
         float jump = Input.GetAxis("Jump");
@@ -79,27 +90,39 @@ public class PlayerControler : MonoBehaviour
     {
         if(other.tag=="Map_Collectable")
         {
-            //TODO
+            countMap++;
+            gameScript.setCountMap(countMap);
             Destroy(other.gameObject);
         }     
         if(other.tag=="Key")
         {
-            //TODO
+            KeyScript key = (KeyScript)other.GetComponent(typeof(KeyScript));
+            listKey.Add(key.getColor());
+            gameScript.setKey(listKey);
             Destroy(other.gameObject);
         }
         if(other.tag=="Laser")
         {
             //TODO
+            
+            Time.timeScale = 0;
+            menuGameOver.SetActive(true);
             Debug.Log("Touching laser");
         }
     }
 
-    void OnCollisionEnter(Collision collisionInfo)
+    void OnCollisionStay(Collision collisionInfo)
     {
         if (collisionInfo.gameObject.tag == "Floor")
         {
             jumping = false;
         }
+    }
+
+    public void restartLevel()
+    {
+        Application.LoadLevel(Application.loadedLevel);
+        Time.timeScale = 1;
     }
 
     float getAngle(float horizontal, float vertical)
@@ -140,5 +163,10 @@ public class PlayerControler : MonoBehaviour
             angle = 360 - angle;
         }
         return angle;
+    }
+
+    public bool hasKey(string color)
+    {
+        return listKey.Contains(color);
     }
 }

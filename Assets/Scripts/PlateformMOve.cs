@@ -25,22 +25,26 @@ public class PlateformMOve : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        this.transform.position = posStart + vector * percent;
-        if(direction)
+        if(Time.timeScale!=0)
         {
-            percent += (float)speed;
+            this.transform.position = posStart + vector * percent;
+            if (direction)
+            {
+                percent += (float)speed;
+            }
+            else
+            {
+                percent -= (float)speed;
+            }
+            if (percent >= 1)
+            {
+                direction = false;
+            }
+            else if (percent <= 0)
+            {
+                direction = true;
+            }
         }
-        else
-        {
-            percent -= (float)speed;
-        }
-        if(percent>=1)
-        {
-            direction = false;
-        }
-        else if(percent<=0)
-        {
-            direction = true;
-        }
+        
 	}
 }
