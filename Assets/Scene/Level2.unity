@@ -126,7 +126,7 @@ GameObject:
   - component: {fileID: 156901880}
   m_Layer: 0
   m_Name: Cone
-  m_TagString: Cone
+  m_TagString: Spikes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -716,6 +716,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1446741327e03eb4f8a02757b978e80d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  delay: 0.8
 --- !u!65 &1618211584
 BoxCollider:
   m_ObjectHideFlags: 0

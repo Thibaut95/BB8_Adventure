@@ -101,13 +101,13 @@ public class PlayerControler : MonoBehaviour
             gameScript.setKey(listKey);
             Destroy(other.gameObject);
         }
-        if(other.tag=="Laser")
+        if(other.tag=="Laser" || other.tag =="Spikes")
         {
             //TODO
             
             Time.timeScale = 0;
             menuGameOver.SetActive(true);
-            Debug.Log("Touching laser");
+            Debug.Log("Dead");
         }
     }
 

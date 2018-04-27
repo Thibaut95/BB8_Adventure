@@ -8,6 +8,8 @@ public class SpikeScript : MonoBehaviour {
     private Vector3 positionEnd;
     private GameObject cone;
     private int direction;
+    [SerializeField]
+    private float delay;
 
 
     void Start () {
@@ -43,6 +45,11 @@ public class SpikeScript : MonoBehaviour {
         
 	}
     void OnCollisionEnter(Collision collision)
+    {
+        Invoke("SpikeUp", delay);
+        
+    }
+    void SpikeUp()
     {
         direction = 1;
     }
