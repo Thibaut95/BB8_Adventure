@@ -15,7 +15,7 @@ public class SpikeScript : MonoBehaviour {
     void Start () {
         cone = transform.Find("Cone").gameObject;
         positionEnd = cone.transform.position;
-        positionStart = cone.transform.position - new Vector3(0,1.7f,0);
+        positionStart = cone.transform.position - new Vector3(0,1.8f,0);
         cone.transform.position = positionStart;
     }
 

@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 65917606365635404}
   m_Layer: 0
   m_Name: spike (1)
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -57,6 +57,7 @@ GameObject:
   - component: {fileID: 4426596470883358}
   - component: {fileID: 33388562770798860}
   - component: {fileID: 23276607118335004}
+  - component: {fileID: 65129311319162632}
   m_Layer: 0
   m_Name: Circle
   m_TagString: Floor
@@ -74,6 +75,7 @@ GameObject:
   - component: {fileID: 4209974257237182}
   - component: {fileID: 33103662578564002}
   - component: {fileID: 23320224237528348}
+  - component: {fileID: 65918384460220620}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Floor
@@ -288,6 +290,18 @@ MeshCollider:
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300004, guid: 8e27ed093251d4c429653aea69a355e1, type: 3}
+--- !u!65 &65129311319162632
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1341406341783176}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.11999999, y: 0.11999997, z: 0.0034396306}
+  m_Center: {x: -0.04823535, y: 0.047919028, z: 0.0012801841}
 --- !u!65 &65917606365635404
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -300,6 +314,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 3, y: 0.1, z: 3}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!65 &65918384460220620
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1742957492369774}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.023823945, y: 0.035242584, z: 0.029999992}
+  m_Center: {x: -0.0000050175, y: 0.000034486868, z: 0.004999998}
 --- !u!114 &114901670831168416
 MonoBehaviour:
   m_ObjectHideFlags: 1
