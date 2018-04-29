@@ -4,13 +4,8 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Map_Collectable
+  - Spikes
   - Floor
-  - Key
-  - Laser
-  - FxTemporaire
-  - Cone
-  - Arrival
   layers:
   - Default
   - TransparentFX
@@ -20,7 +15,7 @@ TagManager:
   - UI
   - 
   - 
-  - Item
+  - 
   - 
   - 
   - 

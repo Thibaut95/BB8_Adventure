@@ -317,7 +317,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  speedJump: 500
+  speedJump: 300
   head: {fileID: 1675321395665394}
   body: {fileID: 1823126116058602}
   friction: 0.8
