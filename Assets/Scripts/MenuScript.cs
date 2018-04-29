@@ -7,12 +7,13 @@ public class MenuScript : MonoBehaviour
 {
     public void LoadMainMenu()
     {
-        SceneManager.LoadScene("MainMenu");     
+        SceneManager.LoadScene("MainMenu");
+        Time.timeScale = 1;
     }
 
     public void restartLevel()
     {
-        Application.LoadLevel(Application.loadedLevel);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);       
         Time.timeScale = 1;
     }
 

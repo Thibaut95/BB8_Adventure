@@ -9,6 +9,9 @@ public class GameScript : MonoBehaviour {
     private GameObject textMap;
     private GameObject textKey;
 
+    private float startTime;
+    private bool isRunning=false;
+
     [SerializeField]
     private int nbMap;
    
@@ -16,6 +19,7 @@ public class GameScript : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
     {
+        
         textTime = this.transform.Find("Text_Time").gameObject;     
         textMap = this.transform.Find("Text_Map").gameObject;
         textKey = this.transform.Find("Text_Key").gameObject;
@@ -24,9 +28,15 @@ public class GameScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update ()
-    {      
-        textTime.GetComponent<Text>().text = Time.time.ToString("0.00");
-	}
+    {
+        float currentTime = 0;
+        
+        if(isRunning)
+        {
+            currentTime = Time.time - startTime;
+        }
+        textTime.GetComponent<Text>().text = currentTime.ToString("0.00");
+    }
 
     public void setCountMap(int countMap)
     {
@@ -41,5 +51,14 @@ public class GameScript : MonoBehaviour {
             list += key + " ";
         }
         textKey.GetComponent<Text>().text = list;
+    }
+
+    public void startGameTime()
+    {
+        if(!isRunning)
+        {
+            startTime = Time.time;
+        }
+        isRunning = true;  
     }
 }

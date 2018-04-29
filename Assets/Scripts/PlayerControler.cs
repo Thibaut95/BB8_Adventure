@@ -29,6 +29,7 @@ public class PlayerControler : MonoBehaviour
     private GameScript gameScript;
     private bool gamePaused = false;
     private GameObject menuGameOver;
+    private GameObject menuFinished;
     
 
     void Start()
@@ -40,6 +41,8 @@ public class PlayerControler : MonoBehaviour
         gameScript = (GameScript)GameObject.Find("Information").gameObject.GetComponent(typeof(GameScript));
         menuGameOver = GameObject.Find("MenuGameOverCanvas").gameObject;
         menuGameOver.SetActive(false);
+        menuFinished = GameObject.Find("MenuLevelFinishedCanvas").gameObject;
+        menuFinished.SetActive(false);
     }
 
     void FixedUpdate()
@@ -48,6 +51,11 @@ public class PlayerControler : MonoBehaviour
         float moveHorizontal = Input.GetAxis("Horizontal");
         float moveVertical = Input.GetAxis("Vertical");
         float jump = Input.GetAxis("Jump");
+
+        if(moveHorizontal!=0 || moveVertical!=0 || jump!=0)
+        {
+            gameScript.startGameTime();
+        }
 
         if(!jumping)
         {
@@ -108,6 +116,11 @@ public class PlayerControler : MonoBehaviour
             Time.timeScale = 0;
             menuGameOver.SetActive(true);
             Debug.Log("Touching laser");
+        }
+        if(other.tag=="Arrival")
+        {
+            Time.timeScale = 0;
+            menuFinished.SetActive(true);
         }
     }
 
