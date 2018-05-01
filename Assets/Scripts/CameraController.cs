@@ -32,7 +32,7 @@ public class CameraController : MonoBehaviour
     {
         if(Time.timeScale!=0)
         {
-            Debug.Log(angleY);
+            //Debug.Log(angleY);
             Vector3 oldPos = transform.position;
             float oldAngleY = angleY;
 

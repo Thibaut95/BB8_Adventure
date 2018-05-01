@@ -122,6 +122,7 @@ public class PlayerControler : MonoBehaviour
         {
             Time.timeScale = 0;
             menuFinished.SetActive(true);
+            GameObject.Find("HUDCanvas").SetActive(false);
         }
     }
 
