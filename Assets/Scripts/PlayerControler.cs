@@ -111,9 +111,7 @@ public class PlayerControler : MonoBehaviour
             Destroy(other.gameObject);
         }
         if(other.tag=="Laser" || other.tag =="Spikes")
-        {
-            //TODO
-            
+        {            
             Time.timeScale = 0;
             menuGameOver.SetActive(true);
             Debug.Log("Dead");

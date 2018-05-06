@@ -43,7 +43,8 @@ public class MenuFinished : MonoBehaviour {
         this.transform.Find("TextPenality").gameObject.GetComponent<Text>().text = penalityTotal.ToString("0.00");
         this.transform.Find("TextFinalTime").gameObject.GetComponent<Text>().text = finalTime.ToString("0.00");
 
-        string filePath = Application.dataPath + saveFile + SceneManager.GetActiveScene().name;
+        //string filePath = Application.dataPath + saveFile + SceneManager.GetActiveScene().name;
+        string filePath = SceneManager.GetActiveScene().name;
         if (File.Exists(filePath))
         {
             string dataAsJson = File.ReadAllText(filePath);
@@ -75,8 +76,8 @@ public class MenuFinished : MonoBehaviour {
         bestScore.namePlayer = value.text;
         string dataAsJson = JsonUtility.ToJson(bestScore);
 
-        string filePath = Application.dataPath +saveFile+ SceneManager.GetActiveScene().name;
-        File.WriteAllText(filePath, dataAsJson);
-        
+        // string filePath = Application.dataPath +saveFile+ SceneManager.GetActiveScene().name;
+        string filePath = SceneManager.GetActiveScene().name;
+        File.WriteAllText(filePath, dataAsJson);     
     }
 }

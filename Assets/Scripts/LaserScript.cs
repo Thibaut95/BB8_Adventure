@@ -23,8 +23,9 @@ public class LaserScript : MonoBehaviour
 
     void ToggleLaser()
     {
-        this.transform.GetComponent<MeshRenderer>().enabled = !this.transform.GetComponent<MeshRenderer>().isVisible;
-        this.transform.GetComponent<BoxCollider>().isTrigger = !this.transform.GetComponent<BoxCollider>().isTrigger;
-        this.transform.GetComponent<BoxCollider>().enabled = !this.transform.GetComponent<BoxCollider>().enabled;
+        bool state = !this.transform.GetComponent<MeshRenderer>().isVisible;
+        this.transform.GetComponent<MeshRenderer>().enabled = state;
+        this.transform.GetComponent<BoxCollider>().isTrigger = state;
+        this.transform.GetComponent<BoxCollider>().enabled = state;
     }
 }
